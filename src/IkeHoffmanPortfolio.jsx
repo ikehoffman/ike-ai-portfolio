@@ -10,41 +10,41 @@ export default function IkeHoffmanPortfolio() {
 
   const professional = [
     {
-      title: "Tactica Market Data Dashboard",
+      title: "Tactica Market Research Dashboard",
       tagline: "Live CRE market intelligence, pulled from public APIs.",
       description:
-        "A live market data explorer aggregating rent, cap rate, and macro signals from multiple APIs into a single interface. Built to replace the paid data subscriptions most small operators can't justify.",
+        "A live dashboard aggregating 218 U.S. metros’ rent, vacancy, and macro signals (employment trends, population growth, affordability) from multiple APIs into a single interface. Built to automate the tedious nature of doing a deep market dive and eliminate the need to navigate clunky, unstructured government websites.",
       tags: ["React", "Vercel", "API Orchestration"],
       link: "https://tactica-dashboard-2b88.vercel.app/",
       linkLabel: "View live →",
       thumb: <ThumbDashboard />,
       expand: {
         problem:
-          "CoStar, RCA, and the other institutional-grade data platforms cost $5,000–$15,000 per year. That math works for a shop doing 50 deals a year; it doesn't work for a syndicator doing four. So the entire bottom half of the CRE market either flies blind on market data or stitches together free sources manually for every new deal.",
+          "I always cringed when I had to research a metro using BLS or Census data. It took me forever to find what I needed from these sites, and often required Excel analysis on top of it to pull out the specific employment and population trends that matter. Doing a thorough analysis of a single city could take at least half a day.",
         built:
-          "A single interface pulling rent, cap rate, population, wage, and macro signals from Census, FRED, BLS, and several CRE-specific sources. Operators can pull market context for any MSA in under a minute. Continuously adding new APIs as I find ones worth integrating.",
+          "A single interface pulling rent, vacancy, population, wage, and macro signals from Census, FRED, BLS, and several CRE-specific sources. Operators can pull market context for any MSA in under a minute. Continuously adding new APIs as I find ones worth integrating.",
         details:
-          "React frontend, Vercel hosting, pure API orchestration with no backend database — every query hits the source data fresh. The interesting engineering work was less about building the dashboard and more about normalizing wildly different API schemas into a consistent internal format.",
+          "React frontend, Vercel hosting, pure API orchestration with no backend database — Every query hits the source data fresh. The interesting engineering work was less about building the dashboard and more about normalizing wildly different API schemas into a consistent internal format.",
         images: [],
         cta: { label: "View the live dashboard →", href: "https://tactica-dashboard-2b88.vercel.app/" },
       },
     },
     {
       title: "Rent Roll Scrubber",
-      tagline: "AI extraction for the messiest document in CRE.",
+      tagline: "AI extraction for the messiest document in Multifamily Real Estate.",
       description:
         "An AI tool that extracts and standardizes rent roll data from the wildly inconsistent PDFs operators actually send. ~95% accuracy across formats. A DIY version of what venture-funded proptech is building.",
       tags: ["Claude API", "PDF Parsing", "Python"],
       link: null,
-      linkLabel: "Private — available on request",
+      linkLabel: "Internal Use Only",
       thumb: <ThumbRentRoll />,
       expand: {
         problem:
-          "Rent rolls are the worst-formatted document in commercial real estate. Every property management system exports them differently. Tenant records span multiple rows. Charge codes are cryptic (conpest, contfinc, conrent, coninsu) and vary by operator. Vacant units have to be reconciled separately. Underwriters routinely spend 30–60 minutes manually cleaning each rent roll before any analysis can begin — and every hour spent cleaning is an hour not spent evaluating the actual deal.",
+          "Rent rolls are the worst-formatted document in multifamily real estate. Every property management system exports them differently. Tenant records span multiple rows. Charge codes are cryptic (conpest, contfinc, conrent, coninsu) and vary by operator. Vacant units have to be reconciled separately. Underwriters routinely spend 30–60 minutes manually cleaning each rent roll before any analysis can begin — And every hour spent cleaning is an hour not spent evaluating the actual deal.",
         built:
-          "An AI pipeline that ingests the messy PDF directly and outputs a clean rent roll analysis package: detailed unit mix, summary unit mix, lease expiration schedule, and move-in rental trends by floorplan type. The operator uploads what they have — they get back what they need.",
+          "An AI pipeline that ingests the messy PDF/Excels directly and outputs a clean rent roll analysis package: detailed unit mix, summary unit mix, lease expiration schedule, and move-in rental trends by floorplan type. The investor uploads what they have — They get back what they need.",
         details:
-          "About 95% accuracy across the formats I've tested. Handles multi-charge structures, reconciles vacant units, and flags anomalies (e.g., units with two active rent codes) rather than silently picking one. Still actively training on edge cases — every new rent roll teaches the system something. Companies like Primer, RealQuant, and RedIQ are building venture-funded versions of this exact problem.",
+          "About 95% accuracy across the formats I've tested. Handles multi-charge structures, reconciles vacant units, and flags anomalies (e.g., units with two active rent codes) rather than silently picking one. Still actively training on edge cases — Every new rent roll teaches the system something.",
         images: [
           { src: "/images/rent-roll-original.jpg", caption: "Input: messy multi-row rent roll export from a property management system." },
           { src: "/images/rent-roll-summary.jpg", caption: "Output: clean detailed + summary unit mix with PSF, actual-vs-market rent, and anomaly flags." },
@@ -56,18 +56,18 @@ export default function IkeHoffmanPortfolio() {
       title: "Newsletter Automation System",
       tagline: "A custom Claude skill that ships a weekly newsletter.",
       description:
-        "An automated workflow that pulls dashboard data, researches trends, drafts content, and assembles the HTML email for Tactica's 8,000-subscriber newsletter. Turns a full day of work into under an hour.",
+        "An automated workflow that creates and assembles the HTML email template for Tactica's 8,000-subscriber weekly newsletter. Turned a half-day of work into under an hour.",
       tags: ["Claude Skills", "HTML Email", "Workflow"],
       link: "https://www.tacticares.com/",
       linkLabel: "See the newsletter →",
       thumb: <ThumbNewsletter />,
       expand: {
         problem:
-          "Running a weekly newsletter for 8,000 subscribers had become a full workday every Monday — pulling market data, researching angles, writing copy, formatting HTML email, QA'ing links. The kind of task that's too custom to outsource but too tedious to enjoy writing every week.",
+          "Running a weekly newsletter for 8,000 subscribers had taken up my entire Friday morning — Pulling market data, researching angles, electing Tactica content to feature (blogs and videos), writing copy, formatting HTML, testing links. The kind of task that's too custom to outsource but too tedious to enjoy writing every week.",
         built:
-          "A custom Claude skill that orchestrates the full workflow: pulls the latest data from the Tactica dashboard API, researches the week's CRE trends, drafts section copy in my voice, and assembles the HTML email ready for review. I still edit and ship — but the blank page is gone.",
+          "A custom Claude skill that orchestrates the full workflow: Pulls the latest data from the Tactica dashboard API, researches the week's CRE trends, picks Tactica content mathing the weeks' macro theme, drafts copy in my voice, and assembles the HTML email ready for review. I still edit, add my thoughts in the intro (no AI by choice), and ship — But starting with a blank slate is a thing of the past.",
         details:
-          "Turned an eight-hour task into about an hour of directed review and refinement. The skill is structured enough that if I ever hired a junior editor, I could hand them the system and the quality would hold. This is also the piece that made me realize how valuable 'small agents for specific workflows' are as a pattern — it's the exact same shape as what CRE firms actually need internally.",
+          "Turned a three - six hour task into an hour of directed review and refinement. The skill is structured enough that if I ever hired a junior editor, I could hand them the system and the quality would hold. This is also the piece that made me realize how valuable 'small agents for specific workflows' are as a pattern — It's the exact same shape as what CRE firms actually need internally.",
         images: [],
         cta: { label: "See the newsletter →", href: "https://www.tacticares.com/" },
       },
@@ -79,18 +79,18 @@ export default function IkeHoffmanPortfolio() {
       title: "Investment Portfolio Dashboard",
       tagline: "One view across every brokerage account.",
       description:
-        "Consolidates holdings from multiple brokerages, uses AI to decompose ETFs into underlying allocation (large cap, small cap, international, etc.), and runs growth forecasts. Statement-upload based — no credential sharing.",
+        "Consolidates holdings from multiple brokerages, uses AI to decompose ETFs into underlying allocation (large cap, small cap, international, etc.), tracks annual dividend income, and runs investment growth forecasts. Statement-upload based — No credential sharing.",
       tags: ["React", "Claude", "Financial Modeling"],
       link: null,
       linkLabel: "Private — available on request",
       thumb: <ThumbPortfolio />,
       expand: {
         problem:
-          "I wanted one view across multiple brokerage accounts without handing credentials to an aggregator. Most consumer tools require you to connect via Plaid or similar — convenient, but an ongoing security surface I wasn't interested in maintaining.",
+          "Across 10+ brokerage accounts and dozens of ETFs, I had no real visibility into what I actually owned. Every ETF abstracts its underlying holdings behind a single ticker — So 'VTI' tells you nothing about whether you're overweight large cap, small cap, or international. Multiply that across a dozen accounts and aggregate allocation becomes incomprehensible. The consumer tools that solve this (Mint, Empower, etc.) are convenient, but wouldn't give me the breakdown I desired.",
         built:
-          "A dashboard that ingests brokerage statement uploads (PDF or CSV), consolidates holdings across accounts, and uses AI to decompose each ETF into its underlying allocation — so a VTI position shows up as large cap / mid / small under the hood, not as an opaque ticker. Plus a financial calculator for long-run growth forecasting under different assumptions.",
+          "A dashboard that ingests brokerage statement uploads (PDF or CSV) directly. Consolidates holdings across every account, then uses AI to decompose each ETF into its underlying allocation. A VTI position now shows up as ~70% large cap / 20% mid / 10% small under the hood, not as an opaque ticker. Aggregate dividend income tracking and a long-run growth calculator (with adjustable contribution, reinvestment and growth assumptions) round it out.",
         details:
-          "Intentional architectural decision to avoid credential storage entirely. The tradeoff is manual statement uploads instead of automatic sync — I preferred the security posture. Built for personal use but the pattern generalizes.",
+          "I'd tried for years to build this in Excel and never quite cracked it — The ETF decomposition and dividend tracking pieces were the wall. Claude turned out to be the right tool for building it and, unexpectedly, as a sounding board on portfolio composition and tax-efficient rebalancing strategies.",
         images: [],
       },
     },
@@ -107,7 +107,7 @@ export default function IkeHoffmanPortfolio() {
         problem:
           "A curiosity project: do opening-to-closing spread movements in NCAA tournament games contain any predictive signal, or is it all noise by the time tipoff hits? I wanted a real answer with real data, not a blog post.",
         built:
-          "Scraped every tournament game from 2008 to present — opening line, closing line, final score, seed matchups. Built eight signal-based indicators from movement patterns (reverse line movement, steam moves, line flips, etc.) and backtested each independently against tournament outcomes.",
+          "Scraped every opening round NCAA tournament game from 2008 to present — opening line, closing line, final score, seed matchups. Built eight signal-based indicators from movement patterns (reverse line movement, steam moves, line flips, etc.) and backtested each independently against tournament outcomes.",
         details:
           "The project is less about the findings and more about the pipeline — scraping across multiple historical sources, reconciling inconsistent data, designing a clean backtest framework, measuring hit rates against properly conservative baselines. The kind of quant-ish data engineering work that translates directly into anything involving historical market data.",
         images: [],
@@ -256,9 +256,9 @@ export default function IkeHoffmanPortfolio() {
         <header className="border-b rule" style={{ borderBottomWidth: 2 }}>
           <div className="max-w-6xl mx-auto px-6 md:px-10">
             <div className={`font-mono t-dateline uppercase py-3 flex items-center justify-between border-b rule-soft fade-up ${mounted ? "in" : ""}`} style={{ color: "var(--ink-muted)" }}>
-              <span>Vol. I — Portfolio</span>
-              <span className="c-dateline-mid">Maplewood, Minnesota</span>
-              <span>Est. 2019</span>
+              <span>AI Portfolio</span>
+              <span className="c-dateline-mid">St. Paul, Minnesota</span>
+              <span>2025 - Present</span>
             </div>
 
             <div className="py-8 sm:py-10 md:py-16">
@@ -274,7 +274,7 @@ export default function IkeHoffmanPortfolio() {
               </h1>
               <div className={`mt-5 sm:mt-6 md:mt-8 c-row gap-4 fade-up ${mounted ? "in" : ""}`} style={{ transitionDelay: "200ms" }}>
                 <p className="font-display t-hero-sub max-w-2xl" style={{ fontStyle: "italic", fontWeight: 300 }}>
-                  CRE finance, AI implementation, and the space between — where most real estate workflows are actually breaking.
+                AI implementation for CRE analysis, personal finance, investing, and hobbies.
                 </p>
                 <div className="font-mono t-meta uppercase flex gap-5 md:gap-6" style={{ color: "var(--ink)" }}>
                   <a href="https://www.linkedin.com/in/ike-hoffman-2b05a139/" target="_blank" rel="noopener noreferrer" className="link-underline pb-0.5">LinkedIn</a>
@@ -293,7 +293,7 @@ export default function IkeHoffmanPortfolio() {
               § 01 — The Pitch
             </div>
             <p className="font-display t-section-lead max-w-3xl" style={{ fontWeight: 300 }}>
-              Seven years underwriting deals, training thousands of CRE professionals through <a href="https://www.tacticares.com/" target="_blank" rel="noopener noreferrer" className="accent-underline" style={{ color: "var(--accent)" }}>Tactica</a>, and going deep on AI implementation in real estate workflows. I'm not an engineer — I'm the person who understands the problem well enough to know what to build, and builds the prototype anyway.
+            AI narrows the gap between ideas and implementation. Just a few years ago, some of my AI projects would have been impossible to undertake due to technical limitations and cost restraints. While I’m far from an engineer, I’m someone who understands problems well enough to articulate them and build a solution (a prototype, anyway).
             </p>
           </div>
         </section>
@@ -307,7 +307,7 @@ export default function IkeHoffmanPortfolio() {
                   § 02 — Selected Work
                 </div>
                 <h2 className="font-display t-section-h" style={{ fontWeight: 400 }}>
-                  Things I've built.
+                  Things I've built (beyond this website).
                 </h2>
               </div>
               <Toggle view={view} setView={setView} />
