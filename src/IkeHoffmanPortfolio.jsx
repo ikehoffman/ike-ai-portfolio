@@ -82,7 +82,7 @@ export default function IkeHoffmanPortfolio() {
         "Consolidates holdings from multiple brokerages, uses AI to decompose ETFs into underlying allocation (large cap, small cap, international, etc.), tracks annual dividend income, and runs investment growth forecasts. Statement-upload based — No credential sharing.",
       tags: ["React", "Claude", "Financial Modeling"],
       link: null,
-      linkLabel: "Private — available on request",
+      linkLabel: "Numbers Altered For Privacy",
       thumb: <ThumbPortfolio />,
       expand: {
         problem:
@@ -96,39 +96,39 @@ export default function IkeHoffmanPortfolio() {
     },
     {
       title: "NCAA Tournament Data Analysis",
-      tagline: "Every tournament game since 2008, scraped and modeled.",
+      tagline: "Every opening tournament game since 2008, scraped and modeled.",
       description:
-        "Scraped every March Madness game, opening and closing line, and result from 2008 to present. Built eight signal-based indicators from line movement patterns and backtested each against tournament outcomes.",
-      tags: ["Python", "Data Engineering", "Backtesting"],
+        "Scraped every first round NCAA tournament game, opening and closing line, and result from 2008 to present. Built eight signal-based indicators from line movement patterns and backtested each against tournament outcomes.",
+      tags: ["Python", "Web Scraping", "Backtesting"],
       link: null,
-      linkLabel: "Writeup available on request",
+      linkLabel: "Methodology on request",
       thumb: <ThumbNCAA />,
       expand: {
         problem:
-          "A curiosity project: do opening-to-closing spread movements in NCAA tournament games contain any predictive signal, or is it all noise by the time tipoff hits? I wanted a real answer with real data, not a blog post.",
+          "A curiosity project: Do opening-to-closing spread movements in NCAA tournament games contain any predictive signal, or is it all noise by the time tipoff hits? I wanted a real answer with real data.",
         built:
-          "Scraped every opening round NCAA tournament game from 2008 to present — opening line, closing line, final score, seed matchups. Built eight signal-based indicators from movement patterns (reverse line movement, steam moves, line flips, etc.) and backtested each independently against tournament outcomes.",
+          "Scraped every opening round NCAA tournament game from 2008 to present — Opening line, closing line, final score, seed matchups. Built eight signal-based indicators from movement patterns (reverse line movement, steam moves, line flips, etc.) and backtested each independently against tournament outcomes.",
         details:
-          "The project is less about the findings and more about the pipeline — scraping across multiple historical sources, reconciling inconsistent data, designing a clean backtest framework, measuring hit rates against properly conservative baselines. The kind of quant-ish data engineering work that translates directly into anything involving historical market data.",
+          "The project is less about the findings and more about the pipeline — Scraping across multiple historical sources, reconciling inconsistent data, designing a clean backtest framework, measuring hit rates against properly conservative baselines. But making a little money off the effort doesn't hurt :).",
         images: [],
       },
     },
     {
-      title: "Real-Time Multiplayer Prediction App",
-      tagline: "Friends, brackets, and an icing mechanic.",
+      title: "Multiplayer Game Picker Pool App",
+      tagline: "Filling out your bracket on steroids. Loser subject to a punishment",
       description:
-        "A multiplayer app where friends pick first-round games. Pulls matchups and lines from live APIs, updates scores in real time, and tracks standings with an 'icing' mechanic for lead changes. Two engineers said I could get hired off this alone.",
-      tags: ["Real-Time APIs", "Multiplayer State", "Live Scoring"],
+        "A multiplayer app where friends pick 32 first-round NCAA tournament games. Pulls matchups and lines from live APIs, updates scores in real time, and tracks standings with a 'press' function to hurt others and bost yourself.",
+      tags: ["Vanilla JS", "Firebase", "ESPN API", "Real-Time Sync"],
       link: null,
-      linkLabel: "Demo available on request",
+      linkLabel: "Built for friends",
       thumb: <ThumbPrediction />,
       expand: {
         problem:
-          "Every March my friends and I run a first-round pool. The usual tools (spreadsheets, group texts) fall apart once games are actually happening in parallel on four networks. I wanted something that felt alive.",
+          "Every March, my friends and I run a first-round pick-em pool we call “The Punishment Bet.” The biggest loser is subject to a punishment decided by participants who didn’t lose. Using a spreadsheet worked great when we were all together in the same living room. But now we go to Las Vegas, and carrying a laptop around the Strip, manually entering game results, and tracking standings isn’t feasible. ",
         built:
-          "A real-time multiplayer app where friends pick all 32 first-round games. The app pulls matchups and lines automatically from live sports APIs, updates scores as games happen, recalculates standings in real time, and includes an 'icing' mechanic that triggers when someone takes the lead — a small piece of chaos that makes the whole day more fun to follow.",
+          "A real-time multiplayer app where friends pick all 32 first-round games. The app pulls matchups and lines automatically from live sports APIs, updates scores as games happen, recalculates standings in real time, and includes the option to sabotage others by “icing their picks” and boosting your own (with the caveat that if you’re wrong, you lose double).",
         details:
-          "Real-time API integration, live state sync across players, automated scoring, and enough edge-case handling (overtime, postponements, early-final weirdness) that the app actually held up through a full tournament. Two professional developers told me I could get hired off this project alone — which is mostly why it's on this site.",
+          "Built as a single-file vanilla JS app — No framework — With Firebase Realtime Database handling state sync across all players, live scores pulled from the ESPN API, and the whole thing deployed free on Cloudflare Pages.",
         images: [],
       },
     },
@@ -290,7 +290,7 @@ export default function IkeHoffmanPortfolio() {
         <section className="border-b rule-soft">
           <div className="max-w-6xl mx-auto px-6 md:px-10 py-10 sm:py-12 md:py-16">
             <div className="font-mono t-meta uppercase mb-5" style={{ color: "var(--ink-soft)" }}>
-              § 01 — The Pitch
+              § 01 — The Premise
             </div>
             <p className="font-display t-section-lead max-w-3xl" style={{ fontWeight: 300 }}>
             AI narrows the gap between ideas and implementation. Just a few years ago, some of my AI projects would have been impossible to undertake due to technical limitations and cost restraints. While I’m far from an engineer, I’m someone who understands problems well enough to articulate them and build a solution (a prototype, anyway).
@@ -327,10 +327,10 @@ export default function IkeHoffmanPortfolio() {
         <section className="border-t rule-soft" style={{ background: "var(--paper)" }}>
           <div className="max-w-6xl mx-auto px-6 md:px-10 py-12 sm:py-16 md:py-20">
             <div className="font-mono t-meta uppercase mb-5" style={{ color: "var(--ink-soft)" }}>
-              § 03 — Footnote
+              § 03 — Where I Fit
             </div>
             <p className="font-display t-footnote max-w-3xl" style={{ fontWeight: 300 }}>
-              Tactica's newsletter reaches <span style={{ color: "var(--accent)", fontStyle: "italic" }}>~8,000</span> CRE professionals — operators, analysts, brokers, lenders. It's a real audience of real buyers, and it's been compounding since 2019.
+            Most CRE professionals don't build software. Most software developers don't understand CRE. I sit at the crossroads. Close enough to the work to know which problems matter. Resourceful enough with AI tools to actually solve them.
             </p>
           </div>
         </section>
