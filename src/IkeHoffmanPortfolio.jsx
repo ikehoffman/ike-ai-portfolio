@@ -13,7 +13,7 @@ export default function IkeHoffmanPortfolio() {
       title: "Tactica Market Research Dashboard",
       tagline: "Live CRE market intelligence, pulled from public APIs.",
       description:
-        "A live dashboard aggregating 218 U.S. metros’ rent, vacancy, and macro signals (employment trends, population growth, affordability) from multiple APIs into a single interface. Built to automate the tedious nature of doing a deep market dive and eliminate the need to navigate clunky, unstructured government websites.",
+        "A live dashboard aggregating 218 U.S. metros' rent, vacancy, and macro signals (employment trends, population growth, affordability) from multiple APIs into a single interface. Built to automate the tedious nature of doing a deep market dive and eliminate the need to navigate clunky, unstructured government websites.",
       tags: ["React", "Vercel", "API Orchestration"],
       link: "https://tactica-dashboard-2b88.vercel.app/",
       linkLabel: "View live →",
@@ -25,7 +25,13 @@ export default function IkeHoffmanPortfolio() {
           "A single interface pulling rent, vacancy, population, wage, and macro signals from Census, FRED, BLS, and several CRE-specific sources. Operators can pull market context for any MSA in under a minute. Continuously adding new APIs as I find ones worth integrating.",
         details:
           "React frontend, Vercel hosting, pure API orchestration with no backend database — Every query hits the source data fresh. The interesting engineering work was less about building the dashboard and more about normalizing wildly different API schemas into a consistent internal format.",
-        images: [],
+        images: [
+          {
+            src: "/images/tactica-dashboard.mp4",
+            type: "video",
+            caption: "Live walkthrough of the Charleston MSA report — rank, key metrics, demographics, and comparable markets."
+          }
+        ],
         cta: { label: "View the live dashboard →", href: "https://tactica-dashboard-2b88.vercel.app/" },
       },
     },
@@ -63,11 +69,11 @@ export default function IkeHoffmanPortfolio() {
       thumb: <ThumbNewsletter />,
       expand: {
         problem:
-          "Running a weekly newsletter for 8,000 subscribers had taken up my entire Friday morning — Pulling market data, researching angles, electing Tactica content to feature (blogs and videos), writing copy, formatting HTML, testing links. The kind of task that's too custom to outsource but too tedious to enjoy writing every week.",
+          "Running a weekly newsletter for 8,000 subscribers had taken up my entire Friday morning — Pulling market data, researching angles, selecting Tactica content to feature (blogs and videos), writing copy, formatting HTML, testing links. The kind of task that's too custom to outsource but too tedious to enjoy writing every week.",
         built:
-          "A custom Claude skill that orchestrates the full workflow: Pulls the latest data from the Tactica dashboard API, researches the week's CRE trends, picks Tactica content mathing the weeks' macro theme, drafts copy in my voice, and assembles the HTML email ready for review. I still edit, add my thoughts in the intro (no AI by choice), and ship — But starting with a blank slate is a thing of the past.",
+          "A custom Claude skill that orchestrates the full workflow: Pulls the latest data from the Tactica dashboard API, researches the week's CRE trends, picks Tactica content matching the week's macro theme, drafts copy in my voice, and assembles the HTML email ready for review. I still edit, add my thoughts in the intro (no AI by choice), and ship — But starting with a blank slate is a thing of the past.",
         details:
-          "Turned a three - six hour task into an hour of directed review and refinement. The skill is structured enough that if I ever hired a junior editor, I could hand them the system and the quality would hold. This is also the piece that made me realize how valuable 'small agents for specific workflows' are as a pattern — It's the exact same shape as what CRE firms actually need internally.",
+          "Turned a three- to six-hour task into an hour of directed review and refinement. The skill is structured enough that if I ever hired a junior editor, I could hand them the system and the quality would hold. This is also the piece that made me realize how valuable 'small agents for specific workflows' are as a pattern — It's the exact same shape as what CRE firms actually need internally.",
         images: [],
         cta: { label: "See the newsletter →", href: "https://www.tacticares.com/" },
       },
@@ -115,18 +121,18 @@ export default function IkeHoffmanPortfolio() {
     },
     {
       title: "Multiplayer Game Picker Pool App",
-      tagline: "Filling out your bracket on steroids. Loser subject to a punishment",
+      tagline: "Filling out your bracket on steroids. Loser subject to a punishment.",
       description:
-        "A multiplayer app where friends pick 32 first-round NCAA tournament games. Pulls matchups and lines from live APIs, updates scores in real time, and tracks standings with a 'press' function to hurt others and bost yourself.",
+        "A multiplayer app where friends pick 32 first-round NCAA tournament games. Pulls matchups and lines from live APIs, updates scores in real time, and tracks standings with a 'press' function to hurt others and boost yourself.",
       tags: ["Vanilla JS", "Firebase", "ESPN API", "Real-Time Sync"],
       link: null,
       linkLabel: "Built for friends",
       thumb: <ThumbPrediction />,
       expand: {
         problem:
-          "Every March, my friends and I run a first-round pick-em pool we call “The Punishment Bet.” The biggest loser is subject to a punishment decided by participants who didn’t lose. Using a spreadsheet worked great when we were all together in the same living room. But now we go to Las Vegas, and carrying a laptop around the Strip, manually entering game results, and tracking standings isn’t feasible. ",
+          "Every March, my friends and I run a first-round pick-em pool we call \"The Punishment Bet.\" The biggest loser is subject to a punishment decided by participants who didn't lose. Using a spreadsheet worked great when we were all together in the same living room. But now we go to Las Vegas, and carrying a laptop around the Strip, manually entering game results, and tracking standings isn't feasible.",
         built:
-          "A real-time multiplayer app where friends pick all 32 first-round games. The app pulls matchups and lines automatically from live sports APIs, updates scores as games happen, recalculates standings in real time, and includes the option to sabotage others by “icing their picks” and boosting your own (with the caveat that if you’re wrong, you lose double).",
+          "A real-time multiplayer app where friends pick all 32 first-round games. The app pulls matchups and lines automatically from live sports APIs, updates scores as games happen, recalculates standings in real time, and includes the option to sabotage others by \"icing their picks\" and boosting your own (with the caveat that if you're wrong, you lose double).",
         details:
           "Built as a single-file vanilla JS app — No framework — With Firebase Realtime Database handling state sync across all players, live scores pulled from the ESPN API, and the whole thing deployed free on Cloudflare Pages.",
         images: [],
@@ -232,9 +238,29 @@ export default function IkeHoffmanPortfolio() {
 
         img { max-width: 100%; height: auto; display: block; }
 
-        /* Container-query responsive utilities
-           These respond to the CONTAINER width, not the viewport,
-           so narrow preview panes render like mobile regardless of browser width. */
+        /* Phone frame for video embeds */
+        .phone-frame {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          padding: 32px 24px;
+          background: linear-gradient(180deg, #f5f0e6 0%, #ebe5d6 100%);
+        }
+        .phone-video {
+          width: 100%;
+          max-width: 320px;
+          height: auto;
+          display: block;
+          border-radius: 28px;
+          border: 8px solid #161412;
+          box-shadow:
+            0 1px 0 1px rgba(28, 25, 21, 0.4),
+            0 20px 40px -10px rgba(28, 25, 21, 0.25),
+            0 8px 16px -4px rgba(28, 25, 21, 0.15);
+          background: #000;
+        }
+
+        /* Container-query responsive utilities */
         .c-row { display: flex; flex-direction: column; }
         .c-dateline-mid { display: none; }
         .c-expand-grid { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -293,7 +319,7 @@ export default function IkeHoffmanPortfolio() {
               § 01 — The Premise
             </div>
             <p className="font-display t-section-lead max-w-3xl" style={{ fontWeight: 300 }}>
-            AI narrows the gap between ideas and implementation. Just a few years ago, some of my AI projects would have been impossible to undertake due to technical limitations and cost restraints. While I’m far from an engineer, I’m someone who understands problems well enough to articulate them and build a solution (a prototype, anyway).
+            AI narrows the gap between ideas and implementation. Just a few years ago, some of my AI projects would have been impossible to undertake due to technical limitations and cost constraints. While I'm far from an engineer, I'm someone who understands problems well enough to articulate them and build a solution (a prototype, anyway).
             </p>
           </div>
         </section>
@@ -483,22 +509,39 @@ function ExpandContent({ expand }) {
             In Use
           </div>
           <div className="flex flex-col gap-5">
-            {expand.images.map((img, i) => (
-              <figure key={i} className="border rule-soft" style={{ background: "var(--bg)" }}>
-                {img.src ? (
-                  <img src={img.src} alt={img.caption || ""} loading="lazy" />
-                ) : (
-                  <div className="p-10 text-center font-mono uppercase" style={{ color: "var(--ink-soft)", fontSize: "10px", letterSpacing: "0.2em" }}>
-                    [ Image placeholder ]
-                  </div>
-                )}
-                {img.caption && (
-                  <figcaption className="px-4 py-3 border-t rule-soft font-display italic" style={{ fontSize: "14px", color: "var(--ink-muted)", lineHeight: 1.4 }}>
-                    {img.caption}
-                  </figcaption>
-                )}
-              </figure>
-            ))}
+            {expand.images.map((item, i) => {
+              const isVideo = item.type === "video" || (item.src && item.src.match(/\.(mp4|webm|mov)$/i));
+              return (
+                <figure key={i} className="border rule-soft" style={{ background: "var(--bg)" }}>
+                  {item.src ? (
+                    isVideo ? (
+                      <div className="phone-frame">
+                        <video
+                          src={item.src}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="metadata"
+                          className="phone-video"
+                        />
+                      </div>
+                    ) : (
+                      <img src={item.src} alt={item.caption || ""} loading="lazy" />
+                    )
+                  ) : (
+                    <div className="p-10 text-center font-mono uppercase" style={{ color: "var(--ink-soft)", fontSize: "10px", letterSpacing: "0.2em" }}>
+                      [ Image placeholder ]
+                    </div>
+                  )}
+                  {item.caption && (
+                    <figcaption className="px-4 py-3 border-t rule-soft font-display italic" style={{ fontSize: "14px", color: "var(--ink-muted)", lineHeight: 1.4 }}>
+                      {item.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              );
+            })}
           </div>
         </div>
       )}
