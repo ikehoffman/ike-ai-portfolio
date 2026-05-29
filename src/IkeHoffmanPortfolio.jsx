@@ -138,6 +138,7 @@ export default function IkeHoffmanPortfolio() {
         images: [
           {
             src: "/images/mm-leaderboard.png",
+            layout: "phone",
             caption: "Live standings after a tournament round — Jesse and Ike tied at 15, with bonus modifiers (lock and ice) visible."
           },
           {
@@ -255,7 +256,7 @@ export default function IkeHoffmanPortfolio() {
 
         img { max-width: 100%; height: auto; display: block; }
 
-        /* Phone frame for vertical video embeds */
+        /* Phone frame for vertical video/image embeds */
         .phone-frame {
           position: relative;
           display: flex;
@@ -263,7 +264,7 @@ export default function IkeHoffmanPortfolio() {
           padding: 32px 24px;
           background: linear-gradient(180deg, #f5f0e6 0%, #ebe5d6 100%);
         }
-        .phone-video {
+        .phone-media {
           width: 100%;
           max-width: 320px;
           height: auto;
@@ -550,6 +551,7 @@ function ExpandContent({ expand }) {
             {expand.images.map((item, i) => {
               const isVideo = item.type === "video" || (item.src && item.src.match(/\.(mp4|webm|mov)$/i));
               const isHorizontal = item.layout === "horizontal";
+              const isPhoneFramed = item.layout === "phone" || (isVideo && !isHorizontal);
               return (
                 <figure key={i} className="border rule-soft" style={{ background: "var(--bg)" }}>
                   {item.src ? (
@@ -562,7 +564,16 @@ function ExpandContent({ expand }) {
                           muted
                           playsInline
                           preload="metadata"
-                          className={isHorizontal ? "" : "phone-video"}
+                          className={isHorizontal ? "" : "phone-media"}
+                        />
+                      </div>
+                    ) : isPhoneFramed ? (
+                      <div className="phone-frame">
+                        <img
+                          src={item.src}
+                          alt={item.caption || ""}
+                          loading="lazy"
+                          className="phone-media"
                         />
                       </div>
                     ) : (
