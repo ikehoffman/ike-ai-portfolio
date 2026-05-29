@@ -135,7 +135,24 @@ export default function IkeHoffmanPortfolio() {
           "A real-time multiplayer app where friends pick all 32 first-round games. The app pulls matchups and lines automatically from live sports APIs, updates scores as games happen, recalculates standings in real time, and includes the option to sabotage others by \"icing their picks\" and boosting your own (with the caveat that if you're wrong, you lose double).",
         details:
           "Built as a single-file vanilla JS app — No framework — With Firebase Realtime Database handling state sync across all players, live scores pulled from the ESPN API, and the whole thing deployed free on Cloudflare Pages.",
-        images: [],
+        images: [
+          {
+            src: "/images/mm-leaderboard.png",
+            caption: "Live standings after a tournament round — Jesse and Ike tied at 15, with bonus modifiers (lock and ice) visible."
+          },
+          {
+            src: "/images/mm-picks.mp4",
+            type: "video",
+            layout: "horizontal",
+            caption: "Making picks — favorite/underdog and over/under for each game, plus the optional ICE sabotage."
+          },
+          {
+            src: "/images/mm-scores.mp4",
+            type: "video",
+            layout: "horizontal",
+            caption: "Live game results pulled from the ESPN API, with day filtering for Thursday and Friday games."
+          },
+        ],
       },
     },
   ];
@@ -238,7 +255,7 @@ export default function IkeHoffmanPortfolio() {
 
         img { max-width: 100%; height: auto; display: block; }
 
-        /* Phone frame for video embeds */
+        /* Phone frame for vertical video embeds */
         .phone-frame {
           position: relative;
           display: flex;
@@ -257,6 +274,27 @@ export default function IkeHoffmanPortfolio() {
             0 1px 0 1px rgba(28, 25, 21, 0.4),
             0 20px 40px -10px rgba(28, 25, 21, 0.25),
             0 8px 16px -4px rgba(28, 25, 21, 0.15);
+          background: #000;
+        }
+
+        /* Horizontal video frame (for landscape recordings) */
+        .video-horizontal {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          padding: 24px;
+          background: linear-gradient(180deg, #f5f0e6 0%, #ebe5d6 100%);
+        }
+        .video-horizontal video {
+          width: 100%;
+          max-width: 540px;
+          height: auto;
+          display: block;
+          border-radius: 8px;
+          border: 1px solid var(--hairline-strong);
+          box-shadow:
+            0 12px 32px -8px rgba(28, 25, 21, 0.22),
+            0 4px 12px -2px rgba(28, 25, 21, 0.12);
           background: #000;
         }
 
@@ -511,11 +549,12 @@ function ExpandContent({ expand }) {
           <div className="flex flex-col gap-5">
             {expand.images.map((item, i) => {
               const isVideo = item.type === "video" || (item.src && item.src.match(/\.(mp4|webm|mov)$/i));
+              const isHorizontal = item.layout === "horizontal";
               return (
                 <figure key={i} className="border rule-soft" style={{ background: "var(--bg)" }}>
                   {item.src ? (
                     isVideo ? (
-                      <div className="phone-frame">
+                      <div className={isHorizontal ? "video-horizontal" : "phone-frame"}>
                         <video
                           src={item.src}
                           autoPlay
@@ -523,7 +562,7 @@ function ExpandContent({ expand }) {
                           muted
                           playsInline
                           preload="metadata"
-                          className="phone-video"
+                          className={isHorizontal ? "" : "phone-video"}
                         />
                       </div>
                     ) : (
