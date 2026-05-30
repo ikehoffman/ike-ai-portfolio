@@ -74,7 +74,13 @@ export default function IkeHoffmanPortfolio() {
           "A custom Claude skill that orchestrates the full workflow: Pulls the latest data from the Tactica dashboard API, researches the week's CRE trends, picks Tactica content matching the week's macro theme, drafts copy in my voice, and assembles the HTML email ready for review. I still edit, add my thoughts in the intro (no AI by choice), and ship — But starting with a blank slate is a thing of the past.",
         details:
           "Turned a three- to six-hour task into an hour of directed review and refinement. The skill is structured enough that if I ever hired a junior editor, I could hand them the system and the quality would hold. This is also the piece that made me realize how valuable 'small agents for specific workflows' are as a pattern — It's the exact same shape as what CRE firms actually need internally.",
-        images: [],
+        images: [
+          {
+            src: "/images/newsletter-scroll.mp4",
+            type: "video",
+            caption: "A recent issue (May 29, 2026) — Ike's take on the macro environment, CRE-relevant analysis, market data, and sourced citations throughout."
+          }
+        ],
         cta: { label: "See the newsletter →", href: "https://www.tacticares.com/" },
       },
     },
