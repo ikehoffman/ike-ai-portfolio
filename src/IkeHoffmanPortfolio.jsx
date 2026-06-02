@@ -52,9 +52,12 @@ export default function IkeHoffmanPortfolio() {
         details:
           "About 95% accuracy across the formats I've tested. Handles multi-charge structures, reconciles vacant units, and flags anomalies (e.g., units with two active rent codes) rather than silently picking one. Still actively training on edge cases — Every new rent roll teaches the system something.",
         images: [
-          { src: "/images/rent-roll-original.jpg", caption: "Input: messy multi-row rent roll export from a property management system." },
-          { src: "/images/rent-roll-summary.jpg", caption: "Output: clean detailed + summary unit mix with PSF, actual-vs-market rent, and anomaly flags." },
-          { src: "/images/rent-roll-charts.jpg", caption: "Output: lease expiration schedule and move-in rent trends by floorplan." },
+          {
+            src: "/images/rent-roll-scrubber.mp4",
+            type: "video",
+            layout: "horizontal",
+            caption: "From chaos to clarity — A raw rent roll export scrolled fast, then the structured outputs the scrubber produces: detailed and summary unit mix, occupancy breakdown, lease expiration schedule, and move-in rent trends by floorplan."
+          },
         ],
       },
     },
