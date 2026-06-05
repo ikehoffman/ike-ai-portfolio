@@ -1,13 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-
 export default function IkeHoffmanPortfolio() {
   const [view, setView] = useState("professional");
   const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
     setMounted(true);
   }, []);
-
   const professional = [
     {
       title: "Tactica Market Research Dashboard",
@@ -88,7 +85,6 @@ export default function IkeHoffmanPortfolio() {
       },
     },
   ];
-
   const personal = [
     {
       title: "Investment Portfolio Dashboard",
@@ -106,7 +102,13 @@ export default function IkeHoffmanPortfolio() {
           "A dashboard that ingests brokerage statement uploads (PDF or CSV) directly. Consolidates holdings across every account, then uses AI to decompose each ETF into its underlying allocation. A VTI position now shows up as ~70% large cap / 20% mid / 10% small under the hood, not as an opaque ticker. Aggregate dividend income tracking and a long-run growth calculator (with adjustable contribution, reinvestment and growth assumptions) round it out.",
         details:
           "I'd tried for years to build this in Excel and never quite cracked it — The ETF decomposition and dividend tracking pieces were the wall. Claude turned out to be the right tool for building it and, unexpectedly, as a sounding board on portfolio composition and tax-efficient rebalancing strategies.",
-        images: [],
+        images: [
+          {
+            src: "/images/portfolio-dashboard.mp4",
+            type: "video",
+            caption: "Numbers altered for privacy."
+          }
+        ],
       },
     },
     {
@@ -166,14 +168,11 @@ export default function IkeHoffmanPortfolio() {
       },
     },
   ];
-
   const projects = view === "professional" ? professional : personal;
-
   return (
     <div className="min-h-screen" style={{ background: "var(--bg)", color: "var(--ink)" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
         :root {
           --bg: #F4EFE4;
           --paper: #FAF6EC;
@@ -186,24 +185,19 @@ export default function IkeHoffmanPortfolio() {
           --hairline: rgba(28, 25, 21, 0.12);
           --hairline-strong: rgba(28, 25, 21, 0.35);
         }
-
         .font-display { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; font-variation-settings: "SOFT" 50, "WONK" 0; }
         .font-body { font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif; }
         .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
-
         .grain {
           position: fixed; inset: 0; pointer-events: none;
           opacity: 0.35; mix-blend-mode: multiply;
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.07 0 0 0 0 0.06 0 0 0 0 0.25 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
           z-index: 1;
         }
-
         .rule { border-color: var(--hairline-strong); }
         .rule-soft { border-color: var(--hairline); }
-
         .fade-up { opacity: 0; transform: translateY(12px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .fade-up.in { opacity: 1; transform: translateY(0); }
-
         .card {
           background: var(--paper);
           border: 1px solid var(--hairline);
@@ -212,7 +206,6 @@ export default function IkeHoffmanPortfolio() {
         }
         .card:hover { border-color: var(--hairline-strong); }
         .card.open { border-color: var(--ink); }
-
         .link-underline {
           background-image: linear-gradient(var(--ink), var(--ink));
           background-size: 100% 1px;
@@ -221,16 +214,13 @@ export default function IkeHoffmanPortfolio() {
           transition: background-size 0.3s ease;
         }
         .link-underline:hover { background-size: 0% 1px; }
-
         .accent-underline {
           background-image: linear-gradient(var(--accent), var(--accent));
           background-size: 100% 1px;
           background-position: 0 100%;
           background-repeat: no-repeat;
         }
-
         .toggle-pill { transition: color 0.3s ease; }
-
         /* Fluid type system — uses container query units (cqi) so text scales with its container, not the viewport */
         .t-mast { font-size: clamp(2.75rem, 11cqi, 7rem); line-height: 0.9; letter-spacing: -0.03em; }
         .t-hero-sub { font-size: clamp(1rem, 2.4cqi, 1.375rem); line-height: 1.35; }
@@ -244,7 +234,6 @@ export default function IkeHoffmanPortfolio() {
         .t-meta { font-size: clamp(9px, 0.9cqi, 11px); letter-spacing: 0.15em; }
         .t-expand-h { font-size: clamp(0.7rem, 0.95cqi, 0.75rem); letter-spacing: 0.22em; }
         .t-expand-body { font-size: clamp(0.9375rem, 1.15cqi, 1rem); line-height: 1.65; }
-
         /* Expand animation via grid-template-rows */
         .expand-wrap {
           display: grid;
@@ -253,7 +242,6 @@ export default function IkeHoffmanPortfolio() {
         }
         .expand-wrap.open { grid-template-rows: 1fr; }
         .expand-inner { overflow: hidden; min-height: 0; }
-
         .plus-icon { width: 14px; height: 14px; position: relative; display: inline-block; }
         .plus-icon::before, .plus-icon::after {
           content: ""; position: absolute; background: currentColor;
@@ -262,9 +250,7 @@ export default function IkeHoffmanPortfolio() {
         .plus-icon::before { top: 50%; left: 0; right: 0; height: 1.25px; transform: translateY(-50%); }
         .plus-icon::after { left: 50%; top: 0; bottom: 0; width: 1.25px; transform: translateX(-50%); }
         .plus-icon.open::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
-
         img { max-width: 100%; height: auto; display: block; }
-
         /* Phone frame for vertical video/image embeds */
         .phone-frame {
           position: relative;
@@ -286,7 +272,6 @@ export default function IkeHoffmanPortfolio() {
             0 8px 16px -4px rgba(28, 25, 21, 0.15);
           background: #000;
         }
-
         /* Horizontal video frame (for landscape recordings) */
         .video-horizontal {
           position: relative;
@@ -307,7 +292,6 @@ export default function IkeHoffmanPortfolio() {
             0 4px 12px -2px rgba(28, 25, 21, 0.12);
           background: #000;
         }
-
         /* Container-query responsive utilities */
         .c-row { display: flex; flex-direction: column; }
         .c-dateline-mid { display: none; }
@@ -322,9 +306,7 @@ export default function IkeHoffmanPortfolio() {
           .c-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
       `}</style>
-
       <div className="grain" />
-
       <div className="relative" style={{ zIndex: 2, containerType: "inline-size" }}>
         {/* MASTHEAD */}
         <header className="border-b rule" style={{ borderBottomWidth: 2 }}>
@@ -334,7 +316,6 @@ export default function IkeHoffmanPortfolio() {
               <span className="c-dateline-mid">St. Paul, Minnesota</span>
               <span>2025 - Present</span>
             </div>
-
             <div className="py-8 sm:py-10 md:py-16">
               <h1
                 className={`font-display t-mast fade-up ${mounted ? "in" : ""}`}
@@ -359,7 +340,6 @@ export default function IkeHoffmanPortfolio() {
             </div>
           </div>
         </header>
-
         {/* INTRO */}
         <section className="border-b rule-soft">
           <div className="max-w-6xl mx-auto px-6 md:px-10 py-10 sm:py-12 md:py-16">
@@ -371,7 +351,6 @@ export default function IkeHoffmanPortfolio() {
             </p>
           </div>
         </section>
-
         {/* WORK */}
         <section>
           <div className="max-w-6xl mx-auto px-6 md:px-10 pt-12 sm:pt-16 md:pt-24 pb-8">
@@ -387,7 +366,6 @@ export default function IkeHoffmanPortfolio() {
               <Toggle view={view} setView={setView} />
             </div>
           </div>
-
           <div className="max-w-6xl mx-auto px-6 md:px-10 pb-24">
             <div className="grid grid-cols-1 c-cards gap-6 md:gap-8 items-start">
               {projects.map((p, i) => (
@@ -396,7 +374,6 @@ export default function IkeHoffmanPortfolio() {
             </div>
           </div>
         </section>
-
         {/* FOOTNOTE */}
         <section className="border-t rule-soft" style={{ background: "var(--paper)" }}>
           <div className="max-w-6xl mx-auto px-6 md:px-10 py-12 sm:py-16 md:py-20">
@@ -408,7 +385,6 @@ export default function IkeHoffmanPortfolio() {
             </p>
           </div>
         </section>
-
         {/* FOOTER */}
         <footer className="border-t rule" style={{ borderTopWidth: 2 }}>
           <div className="max-w-6xl mx-auto px-6 md:px-10 py-8 sm:py-10 c-row c-row-center gap-5">
@@ -430,7 +406,6 @@ export default function IkeHoffmanPortfolio() {
     </div>
   );
 }
-
 /* ───── TOGGLE ───── */
 function Toggle({ view, setView }) {
   const isPro = view === "professional";
@@ -441,7 +416,6 @@ function Toggle({ view, setView }) {
     </div>
   );
 }
-
 function ToggleButton({ active, onClick, children }) {
   return (
     <button
@@ -461,18 +435,15 @@ function ToggleButton({ active, onClick, children }) {
     </button>
   );
 }
-
 /* ───── PROJECT CARD ───── */
 function ProjectCard({ project, index }) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const articleRef = useRef(null);
-
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80 + index * 90);
     return () => clearTimeout(t);
   }, [index]);
-
   return (
     <article
       ref={articleRef}
@@ -485,7 +456,6 @@ function ProjectCard({ project, index }) {
           № {String(index + 1).padStart(2, "0")}
         </div>
       </div>
-
       <div className="p-5 sm:p-6 md:p-7 flex-1 flex flex-col">
         <h3 className="font-display t-card-title" style={{ fontWeight: 400 }}>
           {project.title}
@@ -496,7 +466,6 @@ function ProjectCard({ project, index }) {
         <p className="font-body mt-4" style={{ color: "var(--ink-muted)", fontSize: "15px", lineHeight: 1.6 }}>
           {project.description}
         </p>
-
         <div className="mt-5 flex flex-wrap gap-2">
           {project.tags.map((t) => (
             <span key={t} className="font-mono uppercase tracking-[0.15em] px-2.5 py-1 border" style={{ borderColor: "var(--hairline-strong)", color: "var(--ink)", fontSize: "10px" }}>
@@ -504,7 +473,6 @@ function ProjectCard({ project, index }) {
             </span>
           ))}
         </div>
-
         <div className="mt-6 pt-5 border-t rule-soft flex items-center justify-between gap-3">
           <button
             onClick={() => setOpen(!open)}
@@ -531,7 +499,6 @@ function ProjectCard({ project, index }) {
             </span>
           )}
         </div>
-
         <div className={`expand-wrap ${open ? "open" : ""}`}>
           <div className="expand-inner">
             <ExpandContent expand={project.expand} />
@@ -541,7 +508,6 @@ function ProjectCard({ project, index }) {
     </article>
   );
 }
-
 /* ───── EXPAND CONTENT ───── */
 function ExpandContent({ expand }) {
   if (!expand) return null;
@@ -550,7 +516,6 @@ function ExpandContent({ expand }) {
       <ExpandSection label="The Problem" body={expand.problem} />
       <ExpandSection label="What I Built" body={expand.built} />
       <ExpandSection label="Details" body={expand.details} />
-
       {expand.images && expand.images.length > 0 && (
         <div className="mt-8">
           <div className="font-mono t-expand-h uppercase mb-4" style={{ color: "var(--ink-soft)" }}>
@@ -604,7 +569,6 @@ function ExpandContent({ expand }) {
           </div>
         </div>
       )}
-
       {expand.cta && (
         <div className="mt-8">
           <a
@@ -621,7 +585,6 @@ function ExpandContent({ expand }) {
     </div>
   );
 }
-
 function ExpandSection({ label, body }) {
   if (!body) return null;
   return (
@@ -639,7 +602,6 @@ function ExpandSection({ label, body }) {
     </div>
   );
 }
-
 /* ───── THUMBNAILS ───── */
 function ThumbDashboard() {
   return (
@@ -661,7 +623,6 @@ function ThumbDashboard() {
     </svg>
   );
 }
-
 function ThumbRentRoll() {
   return (
     <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
@@ -696,7 +657,6 @@ function ThumbRentRoll() {
     </svg>
   );
 }
-
 function ThumbPortfolio() {
   return (
     <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
@@ -719,7 +679,6 @@ function ThumbPortfolio() {
     </svg>
   );
 }
-
 function ThumbNewsletter() {
   return (
     <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
@@ -755,7 +714,6 @@ function ThumbNewsletter() {
     </svg>
   );
 }
-
 function ThumbNCAA() {
   return (
     <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
@@ -787,7 +745,6 @@ function ThumbNCAA() {
     </svg>
   );
 }
-
 function ThumbPrediction() {
   return (
     <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
