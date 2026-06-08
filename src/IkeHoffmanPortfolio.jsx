@@ -441,7 +441,7 @@ export default function IkeHoffmanPortfolio() {
                   § 02 — Selected Work
                 </div>
                 <h2 className="font-display t-section-h" style={{ fontWeight: 400 }}>
-                  Things I've built (beyond this website).
+                  Things I've built with AI (beyond this website).
                 </h2>
               </div>
               <Toggle view={view} setView={setView} professional={professional} personal={personal} />
