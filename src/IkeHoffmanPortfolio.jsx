@@ -12,7 +12,7 @@ export default function IkeHoffmanPortfolio() {
       description:
         "A live dashboard aggregating 218 U.S. metros' rent, vacancy, and macro signals (employment trends, population growth, affordability) from multiple APIs into a single interface. Built to automate the tedious nature of doing a deep market dive and eliminate the need to navigate clunky, unstructured government websites.",
       tags: ["React", "Vercel", "API Orchestration"],
-      link: "https://tactica-dashboard-2b88.vercel.app/",
+      link: "https://www.tacticares.com/market-research",
       linkLabel: "View live →",
       thumb: <ThumbDashboard />,
       expand: {
@@ -29,7 +29,7 @@ export default function IkeHoffmanPortfolio() {
             caption: "Live walkthrough of the Charleston MSA report — rank, key metrics, demographics, and comparable markets."
           }
         ],
-        cta: { label: "View the live dashboard →", href: "https://tactica-dashboard-2b88.vercel.app/" },
+        cta: { label: "View the live dashboard →", href: "https://www.tacticares.com/market-research" },
       },
     },
     {
@@ -93,7 +93,7 @@ export default function IkeHoffmanPortfolio() {
         "Consolidates holdings from multiple brokerages, uses AI to decompose ETFs into underlying allocation (large cap, small cap, international, etc.), tracks annual dividend income, and runs investment growth forecasts. Statement-upload based — No credential sharing.",
       tags: ["React", "Claude", "Financial Modeling"],
       link: null,
-      linkLabel: "Numbers and allocations altered for privacy. I wish this was real.",
+      linkLabel: "For personal use",
       thumb: <ThumbPortfolio />,
       expand: {
         problem:
@@ -227,7 +227,81 @@ export default function IkeHoffmanPortfolio() {
           background-position: 0 100%;
           background-repeat: no-repeat;
         }
-        .toggle-pill { transition: color 0.3s ease; }
+        /* Pill-style segmented toggle */
+        .seg-toggle {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          padding: 4px;
+          background: var(--paper);
+          border: 1px solid var(--hairline-strong);
+          border-radius: 999px;
+        }
+        .seg-thumb {
+          position: absolute;
+          top: 4px;
+          bottom: 4px;
+          width: calc(50% - 4px);
+          background: var(--accent);
+          border-radius: 999px;
+          transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+          box-shadow: 0 1px 3px rgba(28, 25, 21, 0.2);
+        }
+        .seg-thumb.right { transform: translateX(100%); }
+        .seg-btn {
+          position: relative;
+          z-index: 1;
+          padding: 8px 18px;
+          font-family: 'JetBrains Mono', ui-monospace, monospace;
+          font-size: 11px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          transition: color 0.3s ease;
+          white-space: nowrap;
+        }
+        .seg-btn.active { color: var(--paper); }
+        .seg-btn.inactive { color: var(--ink-muted); }
+        .seg-btn.inactive:hover { color: var(--ink); }
+        .seg-count {
+          opacity: 0.7;
+          margin-left: 4px;
+        }
+        /* Prominent "Read more" button */
+        .readmore-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 14px;
+          background: var(--accent);
+          color: var(--paper);
+          font-family: 'JetBrains Mono', ui-monospace, monospace;
+          font-size: 11px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          border: 1px solid var(--accent);
+          border-radius: 999px;
+          cursor: pointer;
+          transition: background 0.25s ease, color 0.25s ease;
+        }
+        .readmore-btn:hover {
+          background: var(--ink);
+          border-color: var(--ink);
+        }
+        .readmore-btn.open {
+          background: transparent;
+          color: var(--ink);
+          border-color: var(--hairline-strong);
+        }
+        .readmore-btn.open:hover {
+          border-color: var(--ink);
+        }
+        .readmore-count {
+          opacity: 0.8;
+          font-size: 10px;
+        }
         /* Fluid type system — uses container query units (cqi) so text scales with its container, not the viewport */
         .t-mast { font-size: clamp(2.75rem, 11cqi, 7rem); line-height: 0.9; letter-spacing: -0.03em; }
         .t-hero-sub { font-size: clamp(1rem, 2.4cqi, 1.375rem); line-height: 1.35; }
@@ -249,13 +323,13 @@ export default function IkeHoffmanPortfolio() {
         }
         .expand-wrap.open { grid-template-rows: 1fr; }
         .expand-inner { overflow: hidden; min-height: 0; }
-        .plus-icon { width: 14px; height: 14px; position: relative; display: inline-block; }
+        .plus-icon { width: 12px; height: 12px; position: relative; display: inline-block; }
         .plus-icon::before, .plus-icon::after {
           content: ""; position: absolute; background: currentColor;
           transition: transform 0.35s ease, opacity 0.35s ease;
         }
-        .plus-icon::before { top: 50%; left: 0; right: 0; height: 1.25px; transform: translateY(-50%); }
-        .plus-icon::after { left: 50%; top: 0; bottom: 0; width: 1.25px; transform: translateX(-50%); }
+        .plus-icon::before { top: 50%; left: 0; right: 0; height: 1.5px; transform: translateY(-50%); }
+        .plus-icon::after { left: 50%; top: 0; bottom: 0; width: 1.5px; transform: translateX(-50%); }
         .plus-icon.open::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
         img { max-width: 100%; height: auto; display: block; }
         /* Phone frame for vertical video/image embeds */
@@ -370,7 +444,7 @@ export default function IkeHoffmanPortfolio() {
                   Things I've built (beyond this website).
                 </h2>
               </div>
-              <Toggle view={view} setView={setView} />
+              <Toggle view={view} setView={setView} professional={professional} personal={personal} />
             </div>
           </div>
           <div className="max-w-6xl mx-auto px-6 md:px-10 pb-24">
@@ -414,32 +488,26 @@ export default function IkeHoffmanPortfolio() {
   );
 }
 /* ───── TOGGLE ───── */
-function Toggle({ view, setView }) {
+function Toggle({ view, setView, professional, personal }) {
   const isPro = view === "professional";
   return (
-    <div className="inline-flex items-center gap-8">
-      <ToggleButton active={isPro} onClick={() => setView("professional")}>Professional</ToggleButton>
-      <ToggleButton active={!isPro} onClick={() => setView("personal")}>Personal</ToggleButton>
+    <div className="seg-toggle">
+      <div className={`seg-thumb ${isPro ? "" : "right"}`} />
+      <button
+        onClick={() => setView("professional")}
+        className={`seg-btn ${isPro ? "active" : "inactive"}`}
+        aria-pressed={isPro}
+      >
+        Professional <span className="seg-count">({professional.length})</span>
+      </button>
+      <button
+        onClick={() => setView("personal")}
+        className={`seg-btn ${!isPro ? "active" : "inactive"}`}
+        aria-pressed={!isPro}
+      >
+        Personal <span className="seg-count">({personal.length})</span>
+      </button>
     </div>
-  );
-}
-function ToggleButton({ active, onClick, children }) {
-  return (
-    <button
-      onClick={onClick}
-      className="toggle-pill font-mono uppercase tracking-[0.2em] relative pb-2"
-      style={{ color: active ? "var(--ink)" : "var(--ink-soft)", fontSize: "11px" }}
-    >
-      {children}
-      <span
-        className="absolute bottom-0 left-0 h-[2px] w-full origin-left"
-        style={{
-          background: "var(--accent)",
-          transform: active ? "scaleX(1)" : "scaleX(0)",
-          transition: "transform 0.45s cubic-bezier(0.65, 0, 0.35, 1)",
-        }}
-      />
-    </button>
   );
 }
 /* ───── PROJECT CARD ───── */
@@ -451,6 +519,15 @@ function ProjectCard({ project, index }) {
     const t = setTimeout(() => setMounted(true), 80 + index * 90);
     return () => clearTimeout(t);
   }, [index]);
+
+  // Count media items for the "Read more" badge
+  const mediaCount = project.expand?.images?.length || 0;
+  const mediaLabel = mediaCount > 0
+    ? mediaCount === 1
+      ? "1 item"
+      : `${mediaCount} items`
+    : null;
+
   return (
     <article
       ref={articleRef}
@@ -480,15 +557,17 @@ function ProjectCard({ project, index }) {
             </span>
           ))}
         </div>
-        <div className="mt-6 pt-5 border-t rule-soft flex items-center justify-between gap-3">
+        <div className="mt-6 pt-5 border-t rule-soft flex items-center justify-between gap-3 flex-wrap">
           <button
             onClick={() => setOpen(!open)}
-            className="flex items-center gap-2 font-mono uppercase tracking-[0.2em] link-underline pb-0.5"
-            style={{ fontSize: "11px", color: "var(--ink)" }}
+            className={`readmore-btn ${open ? "open" : ""}`}
             aria-expanded={open}
           >
             <span className={`plus-icon ${open ? "open" : ""}`} />
             <span>{open ? "Close" : "Read more"}</span>
+            {!open && mediaLabel && (
+              <span className="readmore-count">· {mediaLabel}</span>
+            )}
           </button>
           {project.link ? (
             <a
@@ -665,23 +744,38 @@ function ThumbRentRoll() {
   );
 }
 function ThumbPortfolio() {
+  // Allocations: Large Cap 30%, Bonds 18%, International 15%, Small Cap 13%, Other 24%
+  // Circumference for r=55: 2*pi*55 ≈ 345.575
+  // Arc lengths:
+  //   Large Cap (30%): 103.67
+  //   Bonds (18%):     62.20
+  //   International (15%): 51.84
+  //   Small Cap (13%): 44.92
+  //   Other (24%):     82.94
   return (
     <svg viewBox="0 0 400 250" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
       <rect width="400" height="250" fill="var(--bg)" />
       <g transform="translate(125, 125)">
         <circle r="70" fill="none" stroke="var(--hairline)" strokeWidth="1" />
-        <circle r="55" fill="none" stroke="var(--ink)" strokeWidth="18" strokeDasharray="140 345" transform="rotate(-90)" />
-        <circle r="55" fill="none" stroke="var(--accent)" strokeWidth="18" strokeDasharray="85 345" strokeDashoffset="-140" transform="rotate(-90)" />
-        <circle r="55" fill="none" stroke="var(--accent-soft)" strokeWidth="18" strokeDasharray="60 345" strokeDashoffset="-225" transform="rotate(-90)" />
-        <circle r="55" fill="none" stroke="var(--ink-muted)" strokeWidth="18" strokeDasharray="60 345" strokeDashoffset="-285" transform="rotate(-90)" />
-        <text y="-2" fontFamily="Fraunces, serif" fontSize="18" fontStyle="italic" fill="var(--ink)" textAnchor="middle">$2.1M</text>
+        {/* Large Cap 30% - ink */}
+        <circle r="55" fill="none" stroke="var(--ink)" strokeWidth="18" strokeDasharray="103.67 345.575" strokeDashoffset="0" transform="rotate(-90)" />
+        {/* Bonds 18% - accent */}
+        <circle r="55" fill="none" stroke="var(--accent)" strokeWidth="18" strokeDasharray="62.20 345.575" strokeDashoffset="-103.67" transform="rotate(-90)" />
+        {/* International 15% - accent-soft */}
+        <circle r="55" fill="none" stroke="var(--accent-soft)" strokeWidth="18" strokeDasharray="51.84 345.575" strokeDashoffset="-165.87" transform="rotate(-90)" />
+        {/* Small Cap 13% - ink-muted */}
+        <circle r="55" fill="none" stroke="var(--ink-muted)" strokeWidth="18" strokeDasharray="44.92 345.575" strokeDashoffset="-217.71" transform="rotate(-90)" />
+        {/* Other 24% - ink-soft */}
+        <circle r="55" fill="none" stroke="var(--ink-soft)" strokeWidth="18" strokeDasharray="82.94 345.575" strokeDashoffset="-262.63" transform="rotate(-90)" />
+        <text y="-2" fontFamily="Fraunces, serif" fontSize="18" fontStyle="italic" fill="var(--ink)" textAnchor="middle">$11.29M</text>
         <text y="14" fontFamily="JetBrains Mono, monospace" fontSize="8" fill="var(--ink-muted)" textAnchor="middle" letterSpacing="1">NET</text>
       </g>
-      <g transform="translate(230, 70)" fontFamily="JetBrains Mono, monospace" fontSize="9" fill="var(--ink)" letterSpacing="1">
-        <g><rect width="10" height="10" fill="var(--ink)" /><text x="18" y="9">LARGE CAP · 40%</text></g>
-        <g transform="translate(0, 22)"><rect width="10" height="10" fill="var(--accent)" /><text x="18" y="9">INTERNATIONAL · 25%</text></g>
-        <g transform="translate(0, 44)"><rect width="10" height="10" fill="var(--accent-soft)" /><text x="18" y="9">SMALL CAP · 17%</text></g>
-        <g transform="translate(0, 66)"><rect width="10" height="10" fill="var(--ink-muted)" /><text x="18" y="9">BONDS · 18%</text></g>
+      <g transform="translate(230, 58)" fontFamily="JetBrains Mono, monospace" fontSize="9" fill="var(--ink)" letterSpacing="1">
+        <g><rect width="10" height="10" fill="var(--ink)" /><text x="18" y="9">LARGE CAP · 30%</text></g>
+        <g transform="translate(0, 20)"><rect width="10" height="10" fill="var(--accent)" /><text x="18" y="9">BONDS · 18%</text></g>
+        <g transform="translate(0, 40)"><rect width="10" height="10" fill="var(--accent-soft)" /><text x="18" y="9">INTERNATIONAL · 15%</text></g>
+        <g transform="translate(0, 60)"><rect width="10" height="10" fill="var(--ink-muted)" /><text x="18" y="9">SMALL CAP · 13%</text></g>
+        <g transform="translate(0, 80)"><rect width="10" height="10" fill="var(--ink-soft)" /><text x="18" y="9">OTHER · 24%</text></g>
       </g>
     </svg>
   );
@@ -748,7 +842,7 @@ function ThumbNCAA() {
       {[[70, 65], [110, 100], [150, 147], [330, 65], [290, 100], [250, 147]].map(([x, y], i) => (
         <circle key={i} cx={x} cy={y} r="2" fill="var(--ink)" />
       ))}
-      <text x="200" y="30" fontFamily="JetBrains Mono, monospace" fontSize="9" fill="var(--ink-muted)" textAnchor="middle" letterSpacing="2">2008 — PRESENT · 8 SIGNALS</text>
+      <text x="200" y="30" fontFamily="JetBrains Mono, monospace" fontSize="9" fill="var(--ink-muted)" textAnchor="middle" letterSpacing="2">2008 — PRESENT · 9 SIGNALS</text>
     </svg>
   );
 }
@@ -759,17 +853,17 @@ function ThumbPrediction() {
       <g transform="translate(50, 50)">
         <text x="0" y="0" fontFamily="JetBrains Mono, monospace" fontSize="9" fill="var(--ink-muted)" letterSpacing="2">LIVE · STANDINGS</text>
         {[
-          ["01", "MIKE", "148", true],
-          ["02", "SARAH", "142", false],
-          ["03", "IKE", "139", false],
-          ["04", "DAVE", "131", false],
-          ["05", "JEN", "124", false],
+          ["01", "JESSE", "15", true],
+          ["02", "IKE",   "15", true],
+          ["03", "SEAN",  "13", false],
+          ["04", "JAKE",  "10", false],
+          ["05", "BRETT",  "6", false],
         ].map(([rank, name, score, leading], i) => (
           <g key={i} transform={`translate(0, ${20 + i * 26})`}>
             <line x1="0" y1="18" x2="300" y2="18" stroke="var(--hairline)" strokeWidth="0.5" />
             <text x="0" y="12" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="var(--ink-muted)">{rank}</text>
             <text x="35" y="13" fontFamily="Fraunces, serif" fontSize="14" fontStyle={leading ? "italic" : "normal"} fill={leading ? "var(--accent)" : "var(--ink)"} fontWeight="400">{name}</text>
-            <rect x="120" y="6" width={Number(score) * 0.9} height="8" fill={leading ? "var(--accent)" : "var(--ink)"} opacity={leading ? 0.8 : 0.25} />
+            <rect x="120" y="6" width={Number(score) * 9} height="8" fill={leading ? "var(--accent)" : "var(--ink)"} opacity={leading ? 0.8 : 0.25} />
             <text x="300" y="13" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="var(--ink)" textAnchor="end">{score}</text>
           </g>
         ))}
