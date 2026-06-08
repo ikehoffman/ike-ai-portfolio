@@ -64,7 +64,7 @@ export default function IkeHoffmanPortfolio() {
       description:
         "An automated workflow that creates and assembles the HTML email template for Tactica's 8,000-subscriber weekly newsletter. Turned a half-day of work into under an hour.",
       tags: ["Claude Skills", "HTML Email", "Workflow"],
-      link: "https://www.tacticares.com/",
+      link: "https://www.tacticares.com/newsletter-signup",
       linkLabel: "See the newsletter →",
       thumb: <ThumbNewsletter />,
       expand: {
@@ -81,7 +81,7 @@ export default function IkeHoffmanPortfolio() {
             caption: "A recent issue (May 29, 2026) — Ike's take on the macro environment, CRE-relevant analysis, market data, and sourced citations throughout."
           }
         ],
-        cta: { label: "See the newsletter →", href: "https://www.tacticares.com/" },
+        cta: { label: "See the newsletter →", href: "https://www.tacticares.com/newsletter-signup" },
       },
     },
   ];
