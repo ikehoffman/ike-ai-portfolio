@@ -37,7 +37,7 @@ export default function IkeHoffmanPortfolio() {
       tagline: "AI extraction for the messiest document in Multifamily Real Estate.",
       description:
         "An AI tool that extracts and standardizes rent roll data from the wildly inconsistent PDFs operators actually send. ~95% accuracy across formats. A DIY version of what venture-funded proptech is building.",
-      tags: ["Claude API", "PDF Parsing", "Python"],
+      tags: ["Schema Normalization", "PDF Parsing", "Python"],
       link: null,
       linkLabel: "Internal Use Only",
       thumb: <ThumbRentRoll />,
@@ -93,7 +93,7 @@ export default function IkeHoffmanPortfolio() {
         "Consolidates holdings from multiple brokerages, uses AI to decompose ETFs into underlying allocation (large cap, small cap, international, etc.), tracks annual dividend income, and runs investment growth forecasts. Statement-upload based — No credential sharing.",
       tags: ["React", "Claude", "Financial Modeling"],
       link: null,
-      linkLabel: "Numbers Altered For Privacy",
+      linkLabel: "Numbers and allocations altered for privacy. I wish this was real.",
       thumb: <ThumbPortfolio />,
       expand: {
         problem:
@@ -115,7 +115,7 @@ export default function IkeHoffmanPortfolio() {
       title: "NCAA Tournament Data Analysis",
       tagline: "Every opening tournament game since 2008, scraped and modeled.",
       description:
-        "Scraped every first round NCAA tournament game, opening and closing line, and result from 2008 to present. Built eight signal-based indicators from line movement patterns and backtested each against tournament outcomes.",
+        "Scraped every first round NCAA tournament game, opening and closing line, and result from 2008 to present. Built nine signal-based indicators from line movement patterns and backtested each against tournament outcomes.",
       tags: ["Python", "Web Scraping", "Backtesting"],
       link: null,
       linkLabel: "Methodology on request",
@@ -124,7 +124,7 @@ export default function IkeHoffmanPortfolio() {
         problem:
           "A curiosity project: Do opening-to-closing spread movements in NCAA tournament games contain any predictive signal, or is it all noise by the time tipoff hits? I wanted a real answer with real data.",
         built:
-          "Scraped every opening round NCAA tournament game from 2008 to present — Opening line, closing line, final score, seed matchups. Built eight signal-based indicators from movement patterns (reverse line movement, steam moves, line flips, etc.) and backtested each independently against tournament outcomes.",
+          "Scraped every opening round NCAA tournament game from 2008 to present — Opening line, closing line, final score, seed matchups. Built nine signal-based indicators from movement patterns (reverse line movement, steam moves, line flips, etc.) and backtested each independently against tournament outcomes.",
         details:
           "The project is less about the findings and more about the pipeline — Scraping across multiple historical sources, reconciling inconsistent data, designing a clean backtest framework, measuring hit rates against properly conservative baselines. But making a little money off the effort doesn't hurt :).",
         images: [
@@ -157,7 +157,7 @@ export default function IkeHoffmanPortfolio() {
           {
             src: "/images/mm-leaderboard.png",
             layout: "phone",
-            caption: "Live standings after a tournament round — Jesse and Ike tied at 15, with bonus modifiers (lock and ice) visible."
+            caption: "Live standings after a tournament round — Jesse and Ike tied at 15, with bonus modifiers (lock and ice) visible. Chris sang a beautiful rendition of "Wonderwall" at a capacity karaoke bar on the Las Vegas Strip."
           },
           {
             src: "/images/mm-picks.mp4",
@@ -396,7 +396,7 @@ export default function IkeHoffmanPortfolio() {
         <footer className="border-t rule" style={{ borderTopWidth: 2 }}>
           <div className="max-w-6xl mx-auto px-6 md:px-10 py-8 sm:py-10 c-row c-row-center gap-5">
             <div className="font-display t-footer-lead max-w-2xl" style={{ fontStyle: "italic", fontWeight: 400 }}>
-              Open to conversations with proptech teams, CRE firms building AI capability, and anyone working on the interesting part of this problem.
+              Open to conversations with proptech teams, CRE firms building AI capability, and anyone else looking to brainstorm.
             </div>
             <div className="flex gap-5 font-mono t-meta uppercase">
               <a href="mailto:isaacmhoffman@gmail.com" className="link-underline pb-0.5">
