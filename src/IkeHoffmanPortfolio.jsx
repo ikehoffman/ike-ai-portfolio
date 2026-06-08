@@ -37,7 +37,7 @@ export default function IkeHoffmanPortfolio() {
       tagline: "AI extraction for the messiest document in Multifamily Real Estate.",
       description:
         "An AI tool that extracts and standardizes rent roll data from the wildly inconsistent PDFs operators actually send. ~95% accuracy across formats. A DIY version of what venture-funded proptech is building.",
-      tags: ["Schema Normalization", "PDF Parsing", "Python"],
+      tags: ["Automation", "PDF Parsing", "Python"],
       link: null,
       linkLabel: "Internal Use Only",
       thumb: <ThumbRentRoll />,
