@@ -127,7 +127,14 @@ export default function IkeHoffmanPortfolio() {
           "Scraped every opening round NCAA tournament game from 2008 to present — Opening line, closing line, final score, seed matchups. Built eight signal-based indicators from movement patterns (reverse line movement, steam moves, line flips, etc.) and backtested each independently against tournament outcomes.",
         details:
           "The project is less about the findings and more about the pipeline — Scraping across multiple historical sources, reconciling inconsistent data, designing a clean backtest framework, measuring hit rates against properly conservative baselines. But making a little money off the effort doesn't hurt :).",
-        images: [],
+        images: [
+          {
+            src: "/images/ncaa-signals.mp4",
+            type: "video",
+            layout: "horizontal",
+            caption: "Raw scraped tournament games, then the signal-based indicators built from line movement patterns."
+          }
+        ],
       },
     },
     {
