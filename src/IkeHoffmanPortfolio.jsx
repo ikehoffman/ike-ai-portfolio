@@ -106,7 +106,7 @@ export default function IkeHoffmanPortfolio() {
           {
             src: "/images/portfolio-dashboard.mp4",
             type: "video",
-            caption: "Numbers altered for privacy."
+            caption: "Numbers and allocations altered for privacy. I wish this was real."
           }
         ],
       },
@@ -157,7 +157,7 @@ export default function IkeHoffmanPortfolio() {
           {
             src: "/images/mm-leaderboard.png",
             layout: "phone",
-            caption: "Live standings after a tournament round — Jesse and Ike tied at 15, with bonus modifiers (lock and ice) visible. Chris sang a beautiful rendition of "Wonderwall" at a capacity karaoke bar on the Las Vegas Strip."
+            caption: "Live standings after a tournament round — Jesse and Ike tied at 15, with bonus modifiers (lock and ice) visible. Chris sang a beautiful rendition of \"Wonderwall\" at a capacity karaoke bar on the Las Vegas Strip."
           },
           {
             src: "/images/mm-picks.mp4",
